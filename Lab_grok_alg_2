@@ -1,0 +1,108 @@
+using System;
+
+class Program
+{
+    // Задача 1: числа от 1 до n
+    static void PrintNumbers(int n, int k = 1)
+    {
+        if (k > n) return;
+        Console.WriteLine(k);
+        PrintNumbers(n, k + 1);
+    }
+
+    // Задача 2: числа от A до B
+    static void PrintRange(int a, int b)
+    {
+        Console.WriteLine(a);
+        if (a == b) return;
+        if (a < b)
+            PrintRange(a + 1, b);
+        else
+            PrintRange(a - 1, b);
+    }
+
+    // Задача 3: сумма цифр
+    static int DigitSum(int n)
+    {
+        if (n == 0) return 0;
+        return n % 10 + DigitSum(n / 10);
+    }
+
+    // Задача 4: простые делители (с повторами)
+    static void PrimeDivisors(int n, int d = 2)
+    {
+        if (d > n) return;
+        if (n % d == 0)
+        {
+            Console.WriteLine(d);
+            PrimeDivisors(n / d, d);
+        }
+        else
+        {
+            PrimeDivisors(n, d + 1);
+        }
+    }
+
+    // Задача 4 (вариант): только уникальные делители
+    static void UniquePrimeDivisors(int n, int d = 2)
+    {
+        if (d > n) return;
+        if (n % d == 0)
+        {
+            Console.WriteLine(d);
+            while (n % d == 0) n /= d; // убираем повторы
+        }
+        UniquePrimeDivisors(n, d + 1);
+    }
+
+    static void Main()
+    {
+        Console.WriteLine("Выберите задачу:");
+        Console.WriteLine("1 - Вывести числа от 1 до n");
+        Console.WriteLine("2 - Вывести числа от A до B");
+        Console.WriteLine("3 - Найти сумму цифр числа");
+        Console.WriteLine("4 - Найти простые делители (с повторами)");
+        Console.WriteLine("5 - Найти уникальные простые делители");
+
+        int choice = int.Parse(Console.ReadLine());
+
+        switch (choice)
+        {
+            case 1:
+                Console.Write("Введите n: ");
+                int n1 = int.Parse(Console.ReadLine());
+                PrintNumbers(n1);
+                break;
+
+            case 2:
+                Console.Write("Введите A: ");
+                int a = int.Parse(Console.ReadLine());
+                Console.Write("Введите B: ");
+                int b = int.Parse(Console.ReadLine());
+                PrintRange(a, b);
+                break;
+
+            case 3:
+                Console.Write("Введите число: ");
+                int n2 = int.Parse(Console.ReadLine());
+                Console.WriteLine("Сумма цифр = " + DigitSum(n2));
+                break;
+
+            case 4:
+                Console.Write("Введите n: ");
+                int n3 = int.Parse(Console.ReadLine());
+                PrimeDivisors(n3);
+                break;
+
+            case 5:
+                Console.Write("Введите n: ");
+                int n4 = int.Parse(Console.ReadLine());
+                UniquePrimeDivisors(n4);
+                break;
+
+            default:
+                Console.WriteLine("Неверный выбор!");
+                break;
+        }
+    }
+}
