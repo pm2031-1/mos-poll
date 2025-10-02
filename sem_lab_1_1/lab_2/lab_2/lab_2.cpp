@@ -19,7 +19,7 @@ int main()
 	string znak;
 	cin >> znak;
 	int c;
-	if (znak == "+")
+	/*if (znak == "+")
 	{
 		c = x + y;
 	}
@@ -38,12 +38,32 @@ int main()
 		c = x / y;
 
 	}
-	else
+	else 
 	{
 		cout << "Нормальные знаки вводи";
 	}
 	cout << c;
+	cout << "ы";
 }
+*/
+	switch (znak) {
+	case '+':
+		c = x + y;
+		break;
+	case '-':
+		c = x - y;
+		break;
+	case '*':
+		c = x * y;
+		break;
+	case '/':
+		c = x / y;
+		break;
+	default:
+		cout << " Заново";
+		break;
+
+	}
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
