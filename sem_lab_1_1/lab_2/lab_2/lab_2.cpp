@@ -1,29 +1,49 @@
 ﻿// lab_2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
+
 #include <iostream>
 #include <Windows.h>
+using namespace std;
 
 int main()
 {
-	SetConsoleOutputCP(1251);  
 	SetConsoleOutputCP(1251);
-	std::cout << "ВВЕДИТЕ 2 числа\n";
+	SetConsoleOutputCP(1251);
+	cout << "ВВЕДИТЕ 2 числа\n";
 	int x;
-	std::cin >> x;
+	cin >> x;
 	int y;
-	std::cin>> y;
-	std::cout << "ВВЕДИТЕ знак\n";
-	std::string znak;
-	std::cin >> znak;
-
-	if (znak =="+")
+	cin >> y;
+	cout << "ВВЕДИТЕ знак\n";
+	string znak;
+	cin >> znak;
+	int c;
+	if (znak == "+")
 	{
+		c = x + y;
+	}
+	else if (znak == "-")
+	{
+		c = x - y;
 
 	}
+	else if (znak == "*")
+	{
+		c = x * y;
 
+	}
+	else if (znak == "/")
+	{
+		c = x / y;
 
-	
+	}
+	else
+	{
+		cout << "Нормальные знаки вводи";
+	}
+	cout << c;
+}
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
