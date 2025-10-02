@@ -19,6 +19,7 @@ int main()
 	string znak;
 	cin >> znak;
 	int c;
+	int s = (x + y)/2;
 	/*if (znak == "+")
 	{
 		c = x + y;
