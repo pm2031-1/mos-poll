@@ -2,12 +2,27 @@
 //
 
 #include <iostream>
+#include <string>
 using namespace std; 
+int gg(int n = 1) {
+    if (n <= 0) return 0;
+    int sum = 0;
+    for (int i = 1; i < n; i++) {
+        sum += 1;
+
+    }
+    return sum;
+}
+
+void p12_14(int a, int b, int& sum, int& prod) { // передача параметра по ссылке 
+    sum = a + b;
+    prod = a * b;
+}
 int main()
 {
     setlocale(LC_ALL, "");
- 
-    int c[2][3] = {{1,2,3},{4,5,6}};
+
+    int c[2][3] = { {1,2,3},{4,5,6} };
     int sum = 0;
     int result[3];
     int arr_2[3];
@@ -16,40 +31,47 @@ int main()
             sum += c[i][j];
         }
     }
-            cout << sum<<'\n';
+    cout << sum << '\n';
 
-            cout << "---------------------" << '\n';
- 
-            for (int i= 0 ; i < 3; ++i) {
-                 result[i]= 0;
-            }
-            for (int i = 0; i < 2; ++i) {
-                for (int j = 0; j < 3; ++j) {
-                    result[j] += c[i][j];
-                }
-            }
-            for (int k = 0; k < 3; ++k) {
-                cout << result[k]<<' ';
-            }
+    cout << "---------------------" << '\n';
 
-           //point  6- 9
-            float m = 20.84;
-            cout << m << "до ссылки" << '\n';
-            float &n = m;
-            cout << n << "до ссылки" << '\n';
+    for (int i = 0; i < 3; ++i) {
+        result[i] = 0;
+    }
+    for (int i = 0; i < 2; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            result[j] += c[i][j];
+        }
+    }
+    for (int k = 0; k < 3; ++k) {
+        cout << result[k] << ' ';
+    }
 
-            float& z = m;
-            z = 15.2;
-            cout << z << "после изменения ссылки" << '\n';
+    //point  6- 9
+    float m = 20.84;
+    cout << m << "до ссылки" << '\n';
+    float& n = m;
+    cout << n << "до ссылки" << '\n';
 
+    float& z = m;
+    z = 15.2;
+    cout << z << "после изменения ссылки" << '\n';
+    int random_1 = 5;
+    cout << "Знач из п 14" << gg(5) << endl;
+    cout << "знач из п 14 = " << gg() << endl; // вернёт 1
 
+    int a = 3, b = 4, s = 0, p = 0;
+    p12_14(a, b, s, p);
+    for (int p_16 = 0; p_16 < random_1; p_16++) { 
+        cout <<"p16 " << random_1<<endl;
+        int temp = 30;
+        cout << temp<<endl;
+    }
 
 
     return 0;
 }
-void the1() {
-
-}
+   
 
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
