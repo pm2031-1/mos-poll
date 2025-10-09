@@ -5,7 +5,7 @@
 using namespace std; 
 int main()
 {
-    
+    setlocale(LC_ALL, "");
  
     int c[2][3] = {{1,2,3},{4,5,6}};
     int sum = 0;
@@ -16,7 +16,7 @@ int main()
             sum += c[i][j];
         }
     }
-            cout << sum;
+            cout << sum<<'\n';
 
             cout << "---------------------" << '\n';
  
@@ -32,11 +32,23 @@ int main()
                 cout << result[k]<<' ';
             }
 
+           //point  6- 9
+            float m = 20.84;
+            cout << m << "до ссылки" << '\n';
+            float &n = m;
+            cout << n << "до ссылки" << '\n';
+
+            float& z = m;
+            z = 15.2;
+            cout << z << "после изменения ссылки" << '\n';
 
 
 
 
     return 0;
+}
+void the1() {
+
 }
 
 
