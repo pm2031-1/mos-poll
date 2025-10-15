@@ -1,19 +1,71 @@
-﻿// sem_lab_1_1.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+﻿// lab_2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
-#include <iostream>// библиотека для вывода и ввода в консоль 
 
-int main()//главная функция, точка входа
-{//границы 
-    std::cout << "First string\n"; // пункт 1 // ввыод First string
-    setlocale(LC_CTYPE, "Russian");// пункт 2|| добавление русского языка Unicode 
-    std::cout << "Первая стрка\n";
-    std::cout << "Вторая строка\n";
-    std::cout << "Спецсимволы “\\”. Разумеется, кавычки и обратный слеш потребуется экранировать\n";//3й пункт
+#include <iostream>
+#include <Windows.h>
+using namespace std;
 
+int main()
+{
+	SetConsoleOutputCP(1251);
+	SetConsoleOutputCP(1251);
+	cout << "ВВЕДИТЕ 2 числа\n";
+	int x;
+	cin >> x;
+	int y;
+	cin >> y;
+	cout << "ВВЕДИТЕ знак\n";
+	string znak;
+	cin >> znak;
+	int c;
+	int s = (x + y)/2;
+	/*if (znak == "+")
+	{
+		c = x + y;
+	}
+	else if (znak == "-")
+	{
+		c = x - y;
 
+	}
+	else if (znak == "*")
+	{
+		c = x * y;
+
+	}
+	else if (znak == "/")
+	{
+		c = x / y;
+
+	}
+	else 
+	{
+		cout << "Нормальные знаки вводи";
+	}
+	cout << c;
+	cout << "ы";
 }
+*/
+	switch (znak) {
+	case '+':
+		c = x + y;
+		break;
+	case '-':
+		c = x - y;
+		break;
+	case '*':
+		c = x * y;
+		break;
+	case '/':
+		c = x / y;
+		break;
+	default:
+		cout << " Заново";
+		break;
 
+	}
+}
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
