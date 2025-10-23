@@ -3,40 +3,41 @@
 
 #include <iostream>
 #include <string>
+#include <memory>
 using namespace std;
 class Weapon {
 public:
 	string name;
 	int damage;
 	float ves;
-	Weapon(string weaponName, int weaponDamage, double weaponWeight) {
-		name = weaponName;
-		damage = weaponDamage;
-		ves = weaponWeight;
+public:
+	Weapon(string name, int damage, double ves) {
+		this->name = name;     // используем this для явного указания
+		this->damage = damage;
+		this->ves = ves;
 	}
 
 	// Конструктор без параметров
 	
 	Weapon() : Weapon("SWORD", 20, 1.5) {}
+	void displayInfo() const {
+		std::cout << "Название: " << this->name << std::endl;
+		std::cout << "Урон: " << this->damage << std::endl;
+		std::cout << "Вес: " << this->ves <<  std::endl;
+		std::cout << "------------------------" << std::endl;
+	}
 };
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-	//Weapon sword("BIG SWORD", 30, 2.5);
+	Weapon sword("BIG SWORD", 30, 2.5);
 	Weapon defaultWeapon;
 
-	Weapon m;
-	m.name = "Big SWORD";
-	m.damage = 1000;
-	m.ves = 12.5f;
-	cout <<"neme "<< m.name << endl;
-	cout << "damege " << m.damage << endl;
-	cout << "ves " << m.ves << endl;
+	cout << "Информация о первом оружии:" << std::endl;
+	sword.displayInfo();
 
-	cout << "Второе "<<"\n";
-	cout << "neme " << defaultWeapon.name << endl;
-	cout << "damege " << defaultWeapon.damage << endl;
-	cout << "ves " << defaultWeapon.ves << endl;
+	std::cout << "Информация о втором оружии:" << std::endl;
+	defaultWeapon.displayInfo();
 
 }
 
